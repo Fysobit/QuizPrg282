@@ -19,6 +19,20 @@ namespace Activity
         }
         static string path = "Untitled.txt";
         
+        public string checkConnection()
+        {
+            if (!File.Exists(path))
+                File.CreateText(path);
+                string content = "Username: 007, Name: James Bond, Occupation: Assassin\nUsername: Stig, Name: The Stig, Occupation: Reckless Driver\nUsername: Beast, Name: Tendai Mtawarira, Occupation: Lock\nUsername: Speed Merchant, Name: Percy Tau, Occupation: Goalscorer";
+                using (StreamWriter sr = File.AppendText(path))
+                {
+                    sr.WriteLine(content);
+                }
+            else
+                return "Already exist";
+            return path + " is created";
+        }
+        
         public string readFile()
         {
             string s;
@@ -37,6 +51,7 @@ namespace Activity
         
         private void btnReadFile_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(checkConnection());
             readFile();
         }
     }
