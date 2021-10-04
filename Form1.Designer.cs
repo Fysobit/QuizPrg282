@@ -49,6 +49,7 @@ namespace Activity
             this.btnReadFile.TabIndex = 1;
             this.btnReadFile.Text = "Read File";
             this.btnReadFile.UseVisualStyleBackColor = true;
+            this.btnReadFile.Click += new System.EventHandler(this.btnReadFile_Click);
             // 
             // Form1
             // 
